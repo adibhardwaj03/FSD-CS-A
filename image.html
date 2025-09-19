@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageApp</title>
+</head>
+<body>
+    <div id="img-container">
+        <img id="img1" src="123.jpg" alt="">
+        <img id="img2" src="abc.jpg" alt="">
+        <img id="img3" src="Mustang[1].jpg" alt="">
+    </div>
+    <div>
+        <button id="btn">Click Here</button>
+    </div>
+    <script>
+        const images = [
+            document.getElementById('img1'),
+            document.getElementById('img2'),
+            document.getElementById('img3')
+        ];
+        const button = document.getElementById('btn');
+        let current = 0;
+
+        for(let i=1; i<images.length; i++) {
+            images[i].style.display = 'none';
+        }
+
+        button.addEventListener('click', function() {
+            images[current].style.display = 'none';
+            current = (current + 1) % images.length;
+            images[current].style.display = '';
+        });
+    </script>
+</body>
+</html>
